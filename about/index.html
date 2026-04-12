@@ -49,21 +49,21 @@
     .abt-hero__inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      min-height: 90vh;
+      height: calc(100vh - 5rem);
     }
     .abt-hero__left {
-      padding: 5rem 5% 5rem 5%;
+      padding: 3rem 5%;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
+      justify-content: center;
     }
     .abt-hero__eyebrow {
       display: block;
-      font-size: 0.7rem;
+      font-size: 1rem;
       font-weight: 600;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: var(--terracotta);
+      color: var(--muted-sage);
       margin-bottom: 2.5rem;
     }
     .abt-hero__title {
@@ -78,7 +78,7 @@
       color: var(--text-primary);
     }
     .abt-hero__line--bold {
-      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      font-size: clamp(2.2rem, 4vw, 4rem);
       font-weight: 700;
       color: var(--text-primary);
       font-style: italic;
@@ -100,7 +100,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 20%;
+      object-position: center 60%;
       display: block;
     }
 
@@ -128,19 +128,19 @@
     }
     .abt-statement__label {
       display: block;
-      font-size: 0.65rem;
+      font-size: 1rem;
       font-weight: 600;
-      letter-spacing: 0.3em;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: var(--terracotta);
+      color: var(--muted-sage);
       margin-bottom: 2.5rem;
     }
     .abt-statement__text {
       font-family: var(--font-heading);
-      font-size: clamp(1.2rem, 2.4vw, 1.8rem);
+      font-size: 0.95rem;
       font-weight: 300;
       font-style: italic;
-      line-height: 1.75;
+      line-height: 1.9;
       color: var(--text-on-dark);
     }
     .abt-statement__text strong {
@@ -225,14 +225,15 @@
     }
     .abt-founders__heading-light {
       display: block;
-      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-size: clamp(2.2rem, 4vw, 4rem);
       font-weight: 300;
       color: var(--text-primary);
     }
     .abt-founders__heading-bold {
       display: block;
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-size: clamp(2.2rem, 4vw, 4rem);
       font-weight: 700;
+      font-style: italic;
       color: var(--text-primary);
     }
     .abt-founders__sub {
@@ -250,25 +251,46 @@
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      gap: 1.5rem;
+    }
+    .abt-founders__duo .abt-founder-card:first-child {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .abt-founders__duo .abt-founder-card:last-child {
+      display: flex;
+      justify-content: flex-start;
+    }
+    .abt-founder-card__wrap {
+      width: 70%;
     }
     .abt-founder-card__photo {
       width: 100%;
-      aspect-ratio: 3 / 4;
       overflow: hidden;
-      margin-bottom: 2rem;
+      margin-bottom: 0;
+    }
+    .abt-founder-card__info {
+      width: 100%;
+      padding: 1.5rem 0;
     }
     .abt-founder-card__photo img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
+      height: auto;
+      display: block;
       filter: grayscale(25%);
       transition: filter 0.7s ease, transform 0.7s ease;
     }
     .abt-founder-card:hover .abt-founder-card__photo img {
       filter: grayscale(0%);
-      transform: scale(1.03);
+    }
+    .abt-founder-card__photo--radhika img {
+      transform: scale(1.2) translateY(-8%);
+      transform-origin: center 30%;
+    }
+    .abt-founder-card:hover .abt-founder-card__photo--radhika img {
+      filter: grayscale(0%);
+      transform: scale(1.23) translateY(-8%);
+      transform-origin: center 30%;
     }
     .abt-founder-card__role {
       font-size: 0.65rem;
@@ -296,6 +318,179 @@
       font-size: 0.9rem;
       line-height: 1.85;
       color: var(--text-secondary);
+    }
+
+    /* PRESS — STUDIO VERSION */
+    .abt-press {
+      position: relative;
+      background: var(--bg-dark-section);
+      padding: 7rem 0;
+      overflow: hidden;
+    }
+    .abt-press__texture {
+      position: absolute;
+      inset: 0;
+      background: url('/assets/images/tan.webp') center / cover no-repeat;
+      opacity: 0.06;
+    }
+    .abt-press__inner {
+      position: relative;
+      z-index: 1;
+      width: 90%;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .abt-press__top {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 5rem;
+    }
+    .abt-press__eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      white-space: nowrap;
+    }
+    .abt-press__rule {
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+    }
+    .abt-press__grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 5rem;
+      margin-bottom: 5rem;
+    }
+    .abt-press__pub {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2rem;
+    }
+    .abt-press__pub-logo {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .abt-press__pub-img {
+      max-height: 120px;
+      max-width: 280px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.9;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .abt-press__pub-img:hover {
+      opacity: 1;
+      transform: scale(1.04);
+    }
+    .abt-press__pub-img--white {
+      filter: brightness(0) invert(1);
+    }
+    .abt-press__pub-desc {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: var(--text-on-dark-muted);
+      max-width: 340px;
+      font-weight: 300;
+    }
+    .abt-press__divider {
+      width: 1px;
+      height: 200px;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.15), transparent);
+    }
+    .abt-press__bottom {
+      text-align: center;
+      padding-top: 4rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .abt-press__quote {
+      font-family: var(--font-heading);
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.45);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+    @media (max-width: 900px) {
+      .abt-press__grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .abt-press__divider {
+        width: 60px;
+        height: 1px;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent);
+        margin: 0 auto;
+      }
+    }
+
+    /* APPRECIATION */
+    .abt-appreciation {
+      background: url('/assets/images/tan.webp') center / cover no-repeat;
+    }
+    .abt-appreciation__ribbon {
+      width: 100%;
+      padding: 4rem 5%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      text-align: center;
+    }
+    .abt-appreciation__quote-mark {
+      font-family: Georgia, serif;
+      font-size: 1em;
+      font-weight: 300;
+      font-style: normal;
+      color: #ffffff;
+      user-select: none;
+    }
+    .abt-appreciation__heading {
+      font-family: var(--font-heading);
+      line-height: 1.05;
+    }
+    .abt-appreciation__heading-light {
+      display: block;
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      font-weight: 300;
+      color: #ffffff;
+    }
+    .abt-appreciation__heading-bold {
+      display: block;
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      font-weight: 700;
+      font-style: italic;
+      color: #ffffff;
+    }
+    .abt-appreciation__logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5rem;
+    }
+    .abt-appreciation__logo {
+      height: 140px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+    }
+    .abt-appreciation__logo:hover {
+      opacity: 1;
+    }
+    .abt-appreciation__logo--white {
+      filter: brightness(0) invert(1);
     }
 
     /* VALUES */
@@ -379,28 +574,65 @@
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
+      /* Hero */
       .abt-hero__inner {
         grid-template-columns: 1fr;
+        height: auto;
         min-height: auto;
       }
       .abt-hero__right {
-        height: 55vw;
-        min-height: 300px;
+        height: 75vw;
+        min-height: 280px;
       }
       .abt-hero__left {
-        padding: 4rem 5% 3rem;
+        padding: 3rem 5% 2.5rem;
         justify-content: flex-start;
       }
+
+      /* Story */
       .abt-story__inner {
         grid-template-columns: 1fr;
         gap: 2.5rem;
       }
       .abt-story__left { position: static; }
+
+      /* Founders */
+      .abt-founders__header {
+        margin-bottom: 2.5rem;
+      }
       .abt-founders__duo {
         grid-template-columns: 1fr;
-        gap: 4rem;
+        gap: 3rem;
       }
-      .abt-founder-card__photo { aspect-ratio: 4 / 3; }
+      .abt-founders__duo .abt-founder-card:first-child,
+      .abt-founders__duo .abt-founder-card:last-child {
+        justify-content: center;
+      }
+      .abt-founder-card__wrap {
+        width: 90%;
+      }
+      .abt-founder-card__photo--radhika img {
+        transform: scale(1.2) translateY(-5%);
+      }
+      .abt-founder-card:hover .abt-founder-card__photo--radhika img {
+        transform: scale(1.22) translateY(-5%);
+      }
+
+      /* Appreciation */
+      .abt-appreciation__ribbon {
+        padding: 3rem 5%;
+        gap: 2rem;
+      }
+      .abt-appreciation__logos {
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .abt-appreciation__logo {
+        height: 80px;
+      }
+
+      /* Values */
       .abt-values__inner {
         grid-template-columns: 1fr 1fr;
       }
@@ -412,6 +644,31 @@
     }
 
     @media (max-width: 480px) {
+      /* Hero */
+      .abt-hero__line--light,
+      .abt-hero__line--bold {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+      }
+
+      /* Founders */
+      .abt-founder-card__wrap {
+        width: 100%;
+      }
+      .abt-founder-card__info {
+        padding: 1.25rem 0;
+      }
+
+      /* Appreciation */
+      .abt-appreciation__logos {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      .abt-appreciation__logo {
+        height: 70px;
+      }
+
+      /* Values */
       .abt-values__inner { grid-template-columns: 1fr; }
       .abt-value { border-right: none !important; }
     }
@@ -439,10 +696,10 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
         <li><a href="/" class="nav__link">Home</a></li>
-        <li><a href="/services/" class="nav__link">Services</a></li>
-        <li><a href="/portfolio/" class="nav__link">Portfolio</a></li>
+        <li><a href="/services/" class="nav__link">What We Do</a></li>
+        <li><a href="/portfolio/" class="nav__link">Our Work</a></li>
         <li><a href="/about/" class="nav__link active">About Us</a></li>
-        <li><a href="/contact/" class="nav__link nav__link--cta">Contact</a></li>
+        <li><a href="/contact/" class="nav__link nav__link--cta">Let's Connect</a></li>
       </ul>
       <div style="display:flex;align-items:center;gap:0.5rem;">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
@@ -466,14 +723,13 @@
         <div class="abt-hero__left">
           <span class="abt-hero__eyebrow">About Us</span>
           <h1 class="abt-hero__title">
-            <span class="abt-hero__line abt-hero__line--light">we design</span>
-            <span class="abt-hero__line abt-hero__line--light">spaces that</span>
-            <span class="abt-hero__line abt-hero__line--bold">feel like home.</span>
+            <span class="abt-hero__line abt-hero__line--light">where design meets</span>
+            <span class="abt-hero__line abt-hero__line--bold">quiet living</span>
           </h1>
-          <p class="abt-hero__sub">A boutique interior design studio in Pune, built on the belief that great design should feel deeply personal — and unmistakably yours.</p>
+          <p class="abt-hero__sub">Spaces that hold you everyday</p>
         </div>
         <div class="abt-hero__right">
-          <img src="/assets/images/portfolio/DSC06634.webp" alt="Studio raama interior design - The Earthy Abode" loading="eager">
+          <img src="/assets/images/masterbed.webp" alt="Studio raama interior design - Master Bedroom" loading="eager">
         </div>
       </div>
     </section>
@@ -481,29 +737,13 @@
     <!-- STATEMENT STRIP -->
     <section class="abt-statement">
       <div class="abt-statement__inner">
-        <span class="abt-statement__label">Our Philosophy</span>
+        <span class="abt-statement__label">Our Story</span>
         <p class="abt-statement__text">
-          At studio raama, we hold a strong belief that every space has the power to <strong>transform how you live</strong>. We bring precision, warmth, and intention to every project — crafting interiors that go beyond the ordinary, and stay with you long after the last detail is in place.
+          Studio Raama began with a shared belief that the spaces we inhabit should feel as considered as they are comfortable.<br><br>
+          Founded by Aman and Radhika, the studio grew from a mutual love for design, where functionality and aesthetics are given equal importance.<br><br>
+          What started as an instinct to create thoughtful, well-balanced spaces has evolved into a practice rooted in understanding people and the way they live.<br><br>
+          Today, we continue to shape homes and commercial environments with a quiet attention to detail, an intuitive approach to layouts and materials, and a commitment to creating spaces that feel effortless, personal, and enduring.
         </p>
-      </div>
-    </section>
-
-    <!-- OUR STORY -->
-    <section class="abt-story">
-      <div class="abt-story__inner">
-        <div class="abt-story__left">
-          <span class="abt-story__eyebrow">Our Story</span>
-          <h2 class="abt-story__heading">
-            <span class="abt-story__heading-light">crafting spaces,</span>
-            <span class="abt-story__heading-bold">creating stories.</span>
-          </h2>
-          <div class="abt-story__line"></div>
-        </div>
-        <div class="abt-story__right">
-          <p>Studio Raama is a boutique interior design studio dedicated to crafting spaces that reflect your personality, lifestyle, and aspirations. We believe that great design goes beyond aesthetics — it should feel personal, functional, and deeply connected to the people who inhabit the space.</p>
-          <p>Founded by Aman and Radhika, Studio Raama brings together modern design sensibilities with thoughtful functionality. Our approach focuses on understanding each client's vision and translating it into interiors that are both beautiful and livable.</p>
-          <p>From concept to completion, we carefully curate materials, textures, and details to create spaces that feel balanced, timeless, and uniquely yours. Whether it's a home, workspace, or commercial environment, our goal is to design interiors that inspire comfort, creativity, and everyday living.</p>
-        </div>
       </div>
     </section>
 
@@ -511,38 +751,60 @@
     <section class="abt-founders" id="founders">
       <div class="abt-founders__header">
         <h2 class="abt-founders__heading">
-          <span class="abt-founders__heading-light">meet our</span>
-          <span class="abt-founders__heading-bold">founding duo</span>
+          <span class="abt-founders__heading-light">meet the duo</span>
+          <span class="abt-founders__heading-bold">behind it all</span>
         </h2>
-        <span class="abt-founders__sub">Creative Visionaries in Design</span>
       </div>
 
       <div class="abt-founders__duo">
 
         <!-- Radhika -->
         <div class="abt-founder-card">
-          <div class="abt-founder-card__photo">
-            <img src="/assets/images/team/founder-radhika.webp" alt="Radhika Maheshwari - Co-Founder & Principal Designer at studio raama" loading="lazy">
+          <div class="abt-founder-card__wrap">
+            <div class="abt-founder-card__photo abt-founder-card__photo--radhika">
+              <img src="/assets/images/team/founder-radhika.webp" alt="Radhika Maheshwari - Co-Founder & Principal Designer at studio raama" loading="lazy">
+            </div>
+            <div class="abt-founder-card__info">
+              <p class="abt-founder-card__role">Co-Founder & Principal Designer</p>
+              <h3 class="abt-founder-card__name">Radhika Maheshwari</h3>
+              <div class="abt-founder-card__divider"></div>
+              <p class="abt-founder-card__bio">Radhika brings a sensitive and intuitive approach to design, focusing on how spaces feel as much as how they look. She is drawn to the quiet beauty of textures, while also finding joy in working with pretty, bold colours and thoughtfully curated palettes. With an intuitive, detail-driven approach, she enjoys planning layouts, layering furniture, and bringing spaces to life through styling and staging. Her work results in homes that feel warm, balanced, and deeply personal.</p>
+            </div>
           </div>
-          <p class="abt-founder-card__role">Co-Founder & Principal Designer</p>
-          <h3 class="abt-founder-card__name">Radhika Maheshwari</h3>
-          <div class="abt-founder-card__divider"></div>
-          <p class="abt-founder-card__bio">Radhika brings a sensitive and intuitive approach to design, focusing on how spaces feel as much as how they look. She enjoys crafting environments that are warm, inviting, and layered with meaningful details. With a love for soft palettes, textures, and storytelling through design, her work reflects a sense of calm and harmony. Radhika believes that every space should tell a story — one that resonates with the people who live in it.</p>
         </div>
 
         <!-- Aman -->
         <div class="abt-founder-card">
-          <div class="abt-founder-card__photo">
-            <img src="/assets/images/team/founder-aman.webp" alt="Aman Tank - Co-Founder & Principal Designer at studio raama" loading="lazy">
+          <div class="abt-founder-card__wrap">
+            <div class="abt-founder-card__photo">
+              <img src="/assets/images/team/founder-aman.webp" alt="Aman Tank - Co-Founder & Principal Designer at studio raama" loading="lazy">
+            </div>
+            <div class="abt-founder-card__info">
+              <p class="abt-founder-card__role">Co-Founder & Principal Designer</p>
+              <h3 class="abt-founder-card__name">Aman Tank</h3>
+              <div class="abt-founder-card__divider"></div>
+              <p class="abt-founder-card__bio">Aman is driven by a passion for creating spaces that feel both refined and deeply personal. With a strong eye for detail and a focus on functionality, he approaches design as a balance between aesthetics and everyday living. His style leans towards clean, thoughtful compositions enhanced by natural materials and subtle textures. Aman believes that good design should not only look beautiful but also feel intuitive, comfortable, and timeless.</p>
+            </div>
           </div>
-          <p class="abt-founder-card__role">Co-Founder & Principal Designer</p>
-          <h3 class="abt-founder-card__name">Aman Tank</h3>
-          <div class="abt-founder-card__divider"></div>
-          <p class="abt-founder-card__bio">Aman is driven by a passion for creating spaces that feel both refined and deeply personal. With a strong eye for detail and a focus on functionality, he approaches design as a balance between aesthetics and everyday living. His style leans towards clean, thoughtful compositions enhanced by natural materials and subtle textures. Aman believes that good design should not only look beautiful but also feel intuitive, comfortable, and timeless.</p>
         </div>
 
       </div>
     </section>
+
+    <!-- APPRECIATION — CLIENT VERSION -->
+    <section class="abt-appreciation">
+      <div class="abt-appreciation__ribbon">
+        <h2 class="abt-appreciation__heading">
+          <span class="abt-appreciation__heading-light"><span class="abt-appreciation__quote-mark">&ldquo;</span>where our work</span>
+          <span class="abt-appreciation__heading-bold">found appreciation<span class="abt-appreciation__quote-mark">&rdquo;</span></span>
+        </h2>
+        <div class="abt-appreciation__logos">
+          <img src="/assets/images/home-publication-logo.webp" alt="Home Publication" class="abt-appreciation__logo abt-appreciation__logo--white">
+          <img src="/assets/images/india-design-world-logo.webp" alt="India Design World" class="abt-appreciation__logo">
+        </div>
+      </div>
+    </section>
+
 
   </main>
 
@@ -558,10 +820,10 @@
           <h4>Quick Links</h4>
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/services/">Services</a></li>
-            <li><a href="/portfolio/">Portfolio</a></li>
+            <li><a href="/services/">What We Do</a></li>
+            <li><a href="/portfolio/">Our Work</a></li>
             <li><a href="/about/">About Us</a></li>
-            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/contact/">Let's Connect</a></li>
           </ul>
         </div>
         <div class="footer__social">
