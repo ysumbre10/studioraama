@@ -430,6 +430,7 @@ ul { list-style: none; }
 .hero {
   position: relative;
   height: 100vh;
+  height: 100dvh;
   min-height: 600px;
   overflow: hidden;
 }
@@ -1597,6 +1598,7 @@ div.service-card {
     width: 75%;
     max-width: 320px;
     height: 100vh;
+    height: 100dvh;
     background: var(--nav-mobile-bg);
     flex-direction: column;
     justify-content: center;
@@ -1676,12 +1678,11 @@ div.service-card {
 
   /* DIFFERENTIATORS */
   .differentiators { padding: 4rem 0; }
-  .diff-section { height: auto; min-height: auto; overflow: visible; }
-  .diff-slide { position: relative; opacity: 1; pointer-events: auto; min-height: 70vh; padding: 3rem 5%; }
+  .diff-section { height: auto; min-height: auto; overflow: hidden; }
+  .diff-slide { position: relative; opacity: 1; pointer-events: auto; min-height: 60svh; min-height: 60vh; padding: 3rem 5%; }
   .diff-slide__heading { font-size: clamp(1.4rem, 5vw, 2rem); }
   .diff-slide__title { font-size: clamp(1.8rem, 7vw, 2.5rem) !important; }
   .diff-section__video { object-position: center center; }
-  .diff-section::before { position: relative; }
 
   /* PORTFOLIO */
   .portfolio { padding: 4rem 0 2rem; }

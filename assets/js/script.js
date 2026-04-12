@@ -20,7 +20,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (preloader && preloaderLogo && preloaderLine) {
     document.body.classList.add('loading');
-    const tl = gsap.timeline({ onComplete: initPage });
+
+    // Safety net: if GSAP stalls or CDN fails on slow connections, unblock after 5s
+    const preloaderSafety = setTimeout(() => {
+      if (document.body.classList.contains('loading')) {
+        document.body.classList.remove('loading');
+        preloader.classList.add('done');
+        preloader.style.display = 'none';
+        initPage();
+      }
+    }, 5000);
+
+    const tl = gsap.timeline({ onComplete: () => { clearTimeout(preloaderSafety); initPage(); } });
     tl.to(preloaderLogo, { opacity: 1, duration: 0.6, ease: 'power2.out' })
       .to(preloaderLine, { scaleX: 1, duration: 0.8, ease: 'power2.inOut' }, '-=0.2')
       .to(preloaderLine, { scaleX: 0, transformOrigin: 'right', duration: 0.4, ease: 'power2.in' }, '+=0.3')
@@ -38,6 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const counterCurrent = document.querySelector('.hp-counter__current');
     const heroEl = document.querySelector('.hp-hero');
 
+    // Detect touch before Swiper init so we can set touchReleaseOnEdges in constructor
+    const isTouchDev = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
     // No built-in mousewheel — we handle scroll ourselves
     const heroSwiper = new Swiper('#heroSwiper', {
       direction: 'vertical',
@@ -48,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mousewheel: false,
       keyboard: true,
       allowTouchMove: true,
+      touchReleaseOnEdges: isTouchDev, // release page scroll at first/last slide on touch devices
       on: {
         slideChange: function () {
           if (counterCurrent) counterCurrent.textContent = this.activeIndex + 1;
@@ -55,16 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Custom wheel handler — desktop only (touch devices use Swiper's native touch)
-    const isTouchDev = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     let isAnimating = false;
     let lastScrollTime = 0;
-
-    if (isTouchDev) {
-      // On mobile/touch: let Swiper handle touch natively, enable releaseOnEdges
-      heroSwiper.params.allowTouchMove = true;
-      heroSwiper.params.touchReleaseOnEdges = true;
-    }
 
     heroEl.addEventListener('wheel', (e) => {
       // Only intercept on desktop when hero is at top of viewport
