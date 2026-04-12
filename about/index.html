@@ -38,255 +38,382 @@
   </script>
 
   <style>
-    /* ========== ABOUT PAGE - CREATIVE REDESIGN ========== */
+    /* ===== ABOUT PAGE ===== */
 
-    /* Hero - dark full-width with large type */
+    /* HERO */
     .abt-hero {
-      background: var(--bg-dark-section);
-      padding: 10rem 0 6rem;
-      position: relative;
+      background: var(--bg-primary);
+      padding-top: 5rem;
       overflow: hidden;
     }
-    .abt-hero::after {
-      content: 'raama';
-      position: absolute;
-      bottom: -2rem;
-      right: 5%;
-      font-family: var(--font-heading);
-      font-size: clamp(8rem, 18vw, 16rem);
-      font-weight: 700;
-      color: rgba(255,255,255,0.03);
-      line-height: 1;
-      pointer-events: none;
-    }
     .abt-hero__inner {
-      width: 90%; max-width: 1280px; margin: 0 auto;
-      display: flex; align-items: flex-end; gap: 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 90vh;
     }
-    .abt-hero__text { flex: 1; }
-    .abt-hero__tag {
-      font-size: 0.75rem; font-weight: 500;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--terracotta); margin-bottom: 1.5rem;
+    .abt-hero__left {
+      padding: 5rem 5% 5rem 5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .abt-hero__eyebrow {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 2.5rem;
     }
     .abt-hero__title {
       font-family: var(--font-heading);
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 700; line-height: 1.08;
-      color: var(--text-on-dark); margin-bottom: 1.5rem;
+      line-height: 1.05;
+      margin-bottom: 2.5rem;
     }
-    .abt-hero__title em { font-style: italic; font-weight: 300; color: #fff; }
-    .abt-hero__subtitle {
-      font-size: 1.05rem; font-weight: 300; line-height: 1.8;
-      color: var(--text-on-dark-muted); max-width: 500px;
+    .abt-hero__line { display: block; }
+    .abt-hero__line--light {
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      font-weight: 300;
+      color: var(--text-primary);
     }
-    .abt-hero__img {
-      flex: 0 0 340px; height: 420px;
+    .abt-hero__line--bold {
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      font-style: italic;
+    }
+    .abt-hero__sub {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--text-secondary);
+      max-width: 400px;
+      border-left: 2px solid var(--terracotta);
+      padding-left: 1.25rem;
+    }
+    .abt-hero__right {
+      overflow: hidden;
+      position: relative;
+    }
+    .abt-hero__right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+    }
+
+    /* STATEMENT STRIP */
+    .abt-statement {
+      background: var(--bg-dark-section);
+      padding: 7rem 0;
+      position: relative;
       overflow: hidden;
     }
-    .abt-hero__img img {
-      width: 100%; height: 100%; object-fit: cover;
-      filter: grayscale(30%);
-      transition: filter 0.6s;
+    .abt-statement::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('/assets/images/homepage.webp') center / cover no-repeat;
+      opacity: 0.07;
     }
-    .abt-hero__img:hover img { filter: grayscale(0%); }
+    .abt-statement__inner {
+      width: 90%;
+      max-width: 860px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    .abt-statement__label {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 2.5rem;
+    }
+    .abt-statement__text {
+      font-family: var(--font-heading);
+      font-size: clamp(1.2rem, 2.4vw, 1.8rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.75;
+      color: var(--text-on-dark);
+    }
+    .abt-statement__text strong {
+      font-weight: 600;
+      font-style: normal;
+      color: #fff;
+    }
 
-    /* Story - two column with accent line */
+    /* STORY */
     .abt-story {
-      padding: 6rem 0;
-      background: var(--bg-primary);
+      padding: 7rem 0;
+      background: var(--bg-secondary);
     }
     .abt-story__inner {
-      width: 90%; max-width: 1280px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+      width: 90%;
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 6rem;
       align-items: start;
     }
     .abt-story__left {
-      position: sticky; top: 6rem;
+      position: sticky;
+      top: 7rem;
     }
-    .abt-story__label {
-      font-size: 0.7rem; font-weight: 600;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--terracotta); margin-bottom: 1rem;
+    .abt-story__eyebrow {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1.25rem;
+      display: block;
     }
     .abt-story__heading {
       font-family: var(--font-heading);
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      font-weight: 700; line-height: 1.15;
-      color: var(--text-primary); margin-bottom: 1.5rem;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
     }
-    .abt-story__heading em { font-style: italic; font-weight: 300; }
-    .abt-story__accent {
-      width: 50px; height: 2px;
+    .abt-story__heading-light {
+      display: block;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 300;
+      color: var(--text-primary);
+    }
+    .abt-story__heading-bold {
+      display: block;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      font-style: italic;
+    }
+    .abt-story__line {
+      width: 40px;
+      height: 2px;
       background: var(--terracotta);
+      margin-top: 2rem;
     }
     .abt-story__right p {
-      font-size: 1rem; line-height: 1.9;
-      color: var(--text-secondary); margin-bottom: 1.5rem;
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
     }
     .abt-story__right p:last-child { margin-bottom: 0; }
 
-    /* Philosophy - full width pull quote */
-    .abt-philosophy {
-      padding: 5rem 0;
-      background: var(--bg-secondary);
-      text-align: center;
-    }
-    .abt-philosophy__inner {
-      width: 90%; max-width: 800px; margin: 0 auto;
-    }
-    .abt-philosophy__quote {
-      font-family: var(--font-heading);
-      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
-      font-weight: 300; font-style: italic;
-      line-height: 1.8;
-      color: var(--text-primary);
-      position: relative;
-      padding: 0 2rem;
-    }
-    .abt-philosophy__quote::before {
-      content: '\201C';
-      position: absolute; top: -1.5rem; left: -0.5rem;
-      font-family: Georgia, serif;
-      font-size: 5rem; font-style: normal;
-      color: var(--terracotta); opacity: 0.4;
-      line-height: 1;
-    }
-    .abt-philosophy__detail {
-      font-size: 0.95rem; line-height: 1.8;
-      color: var(--text-muted); margin-top: 2rem;
-      font-style: normal;
-    }
-
-    /* Founders - overlapping editorial layout */
+    /* FOUNDERS */
     .abt-founders {
-      padding: 6rem 0;
+      padding: 7rem 0;
       background: var(--bg-primary);
     }
     .abt-founders__header {
-      width: 90%; max-width: 1280px; margin: 0 auto 4rem;
-      text-align: center;
+      width: 90%;
+      max-width: 1280px;
+      margin: 0 auto 5rem;
     }
-    .abt-founders__tag {
-      font-size: 0.7rem; font-weight: 600;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--terracotta); margin-bottom: 1rem;
-    }
-    .abt-founders__title {
+    .abt-founders__heading {
       font-family: var(--font-heading);
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700; line-height: 1.1;
+      line-height: 1.05;
+      margin-bottom: 1rem;
+    }
+    .abt-founders__heading-light {
+      display: block;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 300;
       color: var(--text-primary);
     }
-    .abt-founders__title em { font-style: italic; font-weight: 300; }
-
-    /* Founder card - asymmetric */
-    .abt-founder {
-      width: 90%; max-width: 1280px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 0; align-items: center;
-      margin-bottom: 4rem;
+    .abt-founders__heading-bold {
+      display: block;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 700;
+      color: var(--text-primary);
     }
-    .abt-founder--reverse { direction: rtl; }
-    .abt-founder--reverse > * { direction: ltr; }
-
-    .abt-founder__photo {
-      position: relative; overflow: hidden;
-      height: 550px;
+    .abt-founders__sub {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-top: 1.25rem;
+      display: block;
     }
-    .abt-founder__photo img {
-      width: 100%; height: 100%; object-fit: cover;
-      object-position: top center;
-      filter: grayscale(100%);
-      transition: filter 0.6s ease;
+    .abt-founders__duo {
+      width: 90%;
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
     }
-    .abt-founder:hover .abt-founder__photo img { filter: grayscale(0%); }
-
-    .abt-founder__num {
-      position: absolute; bottom: 1rem; right: 1.5rem;
-      font-family: var(--font-heading);
-      font-size: 6rem; font-weight: 700;
-      color: rgba(255,255,255,0.12);
-      line-height: 1;
+    .abt-founder-card__photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      margin-bottom: 2rem;
     }
-
-    .abt-founder__info {
-      padding: 3rem 4rem;
-      background: var(--bg-secondary);
+    .abt-founder-card__photo img {
+      width: 100%;
       height: 100%;
-      display: flex; flex-direction: column; justify-content: center;
+      object-fit: cover;
+      object-position: top center;
+      filter: grayscale(25%);
+      transition: filter 0.7s ease, transform 0.7s ease;
     }
-    .abt-founder__role {
-      font-size: 0.7rem; font-weight: 600;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--terracotta); margin-bottom: 0.75rem;
+    .abt-founder-card:hover .abt-founder-card__photo img {
+      filter: grayscale(0%);
+      transform: scale(1.03);
     }
-    .abt-founder__name {
+    .abt-founder-card__role {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.5rem;
+    }
+    .abt-founder-card__name {
       font-family: var(--font-heading);
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 700; line-height: 1.15;
-      color: var(--text-primary); margin-bottom: 1.25rem;
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      line-height: 1.15;
     }
-    .abt-founder__bio {
-      font-size: 0.9rem; line-height: 1.8;
+    .abt-founder-card__divider {
+      width: 32px;
+      height: 1.5px;
+      background: var(--terracotta);
+      margin-bottom: 1.25rem;
+    }
+    .abt-founder-card__bio {
+      font-size: 0.9rem;
+      line-height: 1.85;
       color: var(--text-secondary);
     }
 
-    /* Values strip */
+    /* VALUES */
     .abt-values {
       background: var(--bg-dark-section);
-      padding: 4rem 0;
+      padding: 5rem 0;
     }
     .abt-values__inner {
-      width: 90%; max-width: 1280px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
-      text-align: center;
+      width: 90%;
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
     }
+    .abt-value {
+      padding: 2.5rem 2rem;
+      border-right: 1px solid rgba(255,255,255,0.07);
+    }
+    .abt-value:last-child { border-right: none; }
     .abt-value__num {
       font-family: var(--font-heading);
-      font-size: 2.5rem; font-weight: 200;
-      color: var(--terracotta); margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+      font-weight: 200;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+      line-height: 1;
     }
     .abt-value__label {
       font-family: var(--font-heading);
-      font-size: 1rem; font-weight: 600;
-      color: var(--text-on-dark); margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-on-dark);
+      margin-bottom: 0.75rem;
     }
     .abt-value__text {
-      font-size: 0.8rem; line-height: 1.6;
+      font-size: 0.8rem;
+      line-height: 1.65;
       color: var(--text-on-dark-muted);
     }
 
     /* CTA */
     .abt-cta {
-      padding: 5rem 0;
+      padding: 7rem 0;
       background: var(--bg-secondary);
       text-align: center;
     }
-    .abt-cta h2 {
-      font-family: var(--font-heading);
-      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-      font-weight: 700; color: var(--text-primary);
-      margin-bottom: 1rem;
+    .abt-cta__eyebrow {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1.5rem;
     }
-    .abt-cta h2 em { font-style: italic; font-weight: 300; }
+    .abt-cta__heading {
+      font-family: var(--font-heading);
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+    .abt-cta__heading-light {
+      display: block;
+      font-size: clamp(1.6rem, 3vw, 2.5rem);
+      font-weight: 300;
+      color: var(--text-primary);
+    }
+    .abt-cta__heading-bold {
+      display: block;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      font-style: italic;
+    }
     .abt-cta p {
-      font-size: 0.95rem; color: var(--text-muted);
-      margin-bottom: 2rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      font-weight: 300;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .abt-hero { padding: 7rem 0 4rem; }
-      .abt-hero__inner { flex-direction: column; gap: 2rem; align-items: flex-start; }
-      .abt-hero__img { flex: none; width: 100%; height: 300px; }
-      .abt-story__inner { grid-template-columns: 1fr; gap: 2rem; }
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .abt-hero__inner {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .abt-hero__right {
+        height: 55vw;
+        min-height: 300px;
+      }
+      .abt-hero__left {
+        padding: 4rem 5% 3rem;
+        justify-content: flex-start;
+      }
+      .abt-story__inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
       .abt-story__left { position: static; }
-      .abt-founder { grid-template-columns: 1fr; }
-      .abt-founder--reverse { direction: ltr; }
-      .abt-founder__photo { height: 400px; }
-      .abt-founder__info { padding: 2rem 1.5rem; }
-      .abt-values__inner { grid-template-columns: repeat(2, 1fr); gap: 2rem 1rem; }
+      .abt-founders__duo {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+      .abt-founder-card__photo { aspect-ratio: 4 / 3; }
+      .abt-values__inner {
+        grid-template-columns: 1fr 1fr;
+      }
+      .abt-value {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+      }
+      .abt-value:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.07); }
+    }
+
+    @media (max-width: 480px) {
+      .abt-values__inner { grid-template-columns: 1fr; }
+      .abt-value { border-right: none !important; }
     }
   </style>
 </head>
@@ -333,114 +460,128 @@
 
   <main>
 
-  <!-- HERO -->
-  <section class="abt-hero">
-    <div class="abt-hero__inner">
-      <div class="abt-hero__text">
-        <p class="abt-hero__tag">About Us</p>
-        <h1 class="abt-hero__title">we design spaces that feel like <em>home.</em></h1>
-        <p class="abt-hero__subtitle">A boutique interior design studio in Pune, founded on the belief that great design should feel personal.</p>
+    <!-- HERO -->
+    <section class="abt-hero">
+      <div class="abt-hero__inner">
+        <div class="abt-hero__left">
+          <span class="abt-hero__eyebrow">About Us</span>
+          <h1 class="abt-hero__title">
+            <span class="abt-hero__line abt-hero__line--light">we design</span>
+            <span class="abt-hero__line abt-hero__line--light">spaces that</span>
+            <span class="abt-hero__line abt-hero__line--bold">feel like home.</span>
+          </h1>
+          <p class="abt-hero__sub">A boutique interior design studio in Pune, built on the belief that great design should feel deeply personal — and unmistakably yours.</p>
+        </div>
+        <div class="abt-hero__right">
+          <img src="/assets/images/portfolio/DSC06634.webp" alt="Studio raama interior design - The Earthy Abode" loading="eager">
+        </div>
       </div>
-      <div class="abt-hero__img">
-        <img src="/assets/images/portfolio/DSC09264-HDR.webp" alt="Studio Raama interior design" loading="eager">
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- OUR STORY -->
-  <section class="abt-story">
-    <div class="abt-story__inner">
-      <div class="abt-story__left">
-        <p class="abt-story__label">Our Story</p>
-        <h2 class="abt-story__heading">crafting spaces, <em>creating stories</em></h2>
-        <div class="abt-story__accent"></div>
+    <!-- STATEMENT STRIP -->
+    <section class="abt-statement">
+      <div class="abt-statement__inner">
+        <span class="abt-statement__label">Our Philosophy</span>
+        <p class="abt-statement__text">
+          At studio raama, we hold a strong belief that every space has the power to <strong>transform how you live</strong>. We bring precision, warmth, and intention to every project — crafting interiors that go beyond the ordinary, and stay with you long after the last detail is in place.
+        </p>
       </div>
-      <div class="abt-story__right">
-        <p>Studio Raama is a boutique interior design studio dedicated to crafting spaces that reflect your personality, lifestyle, and aspirations. We believe that great design goes beyond aesthetics - it should feel personal, functional, and deeply connected to the people who inhabit the space.</p>
-        <p>Founded by Aman and Radhika, Studio Raama brings together modern design sensibilities with thoughtful functionality. Our approach focuses on understanding each client's vision and translating it into interiors that are both beautiful and livable.</p>
-        <p>From concept to completion, we carefully curate materials, textures, and details to create spaces that feel balanced, timeless, and uniquely yours. Whether it's a home, workspace, or commercial environment, our goal is to design interiors that inspire comfort, creativity, and everyday living.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PHILOSOPHY -->
-  <section class="abt-philosophy">
-    <div class="abt-philosophy__inner">
-      <blockquote class="abt-philosophy__quote">
-        We believe every space has a story waiting to be told. Our role is to listen carefully, understand deeply, and design thoughtfully - so that the finished space doesn't just look beautiful, but feels unmistakably like home.
-      </blockquote>
-      <p class="abt-philosophy__detail">Good design isn't about trends or excess. It's about balance - between aesthetics and function, between bold choices and quiet elegance, between the designer's craft and the client's vision. That balance is at the heart of everything we do.</p>
-    </div>
-  </section>
+    <!-- OUR STORY -->
+    <section class="abt-story">
+      <div class="abt-story__inner">
+        <div class="abt-story__left">
+          <span class="abt-story__eyebrow">Our Story</span>
+          <h2 class="abt-story__heading">
+            <span class="abt-story__heading-light">crafting spaces,</span>
+            <span class="abt-story__heading-bold">creating stories.</span>
+          </h2>
+          <div class="abt-story__line"></div>
+        </div>
+        <div class="abt-story__right">
+          <p>Studio Raama is a boutique interior design studio dedicated to crafting spaces that reflect your personality, lifestyle, and aspirations. We believe that great design goes beyond aesthetics — it should feel personal, functional, and deeply connected to the people who inhabit the space.</p>
+          <p>Founded by Aman and Radhika, Studio Raama brings together modern design sensibilities with thoughtful functionality. Our approach focuses on understanding each client's vision and translating it into interiors that are both beautiful and livable.</p>
+          <p>From concept to completion, we carefully curate materials, textures, and details to create spaces that feel balanced, timeless, and uniquely yours. Whether it's a home, workspace, or commercial environment, our goal is to design interiors that inspire comfort, creativity, and everyday living.</p>
+        </div>
+      </div>
+    </section>
 
-  <!-- FOUNDERS -->
-  <section class="abt-founders" id="founders">
-    <div class="abt-founders__header">
-      <p class="abt-founders__tag">The Founders</p>
-      <h2 class="abt-founders__title">meet the <em>team</em></h2>
-    </div>
+    <!-- FOUNDERS -->
+    <section class="abt-founders" id="founders">
+      <div class="abt-founders__header">
+        <h2 class="abt-founders__heading">
+          <span class="abt-founders__heading-light">meet our</span>
+          <span class="abt-founders__heading-bold">founding duo</span>
+        </h2>
+        <span class="abt-founders__sub">Creative Visionaries in Design</span>
+      </div>
 
-    <!-- Radhika -->
-    <div class="abt-founder">
-      <div class="abt-founder__photo">
-        <img src="/assets/images/team/founder-radhika.webp" alt="Radhika Maheshwari - Co-Founder & Principal Designer at studio raama" loading="lazy">
-        <span class="abt-founder__num">01</span>
-      </div>
-      <div class="abt-founder__info">
-        <p class="abt-founder__role">Co-Founder & Principal Designer</p>
-        <h3 class="abt-founder__name">Radhika Maheshwari</h3>
-        <p class="abt-founder__bio">Radhika brings a sensitive and intuitive approach to design, focusing on how spaces feel as much as how they look. She enjoys crafting environments that are warm, inviting, and layered with meaningful details. With a love for soft palettes, textures, and storytelling through design, her work reflects a sense of calm and harmony. Radhika believes that every space should tell a story - one that resonates with the people who live in it.</p>
-      </div>
-    </div>
+      <div class="abt-founders__duo">
 
-    <!-- Aman -->
-    <div class="abt-founder abt-founder--reverse">
-      <div class="abt-founder__photo">
-        <img src="/assets/images/team/founder-aman.webp" alt="Aman Tank - Co-Founder & Principal Designer at studio raama" loading="lazy">
-        <span class="abt-founder__num">02</span>
-      </div>
-      <div class="abt-founder__info">
-        <p class="abt-founder__role">Co-Founder & Principal Designer</p>
-        <h3 class="abt-founder__name">Aman Tank</h3>
-        <p class="abt-founder__bio">Aman is driven by a passion for creating spaces that feel both refined and deeply personal. With a strong eye for detail and a focus on functionality, he approaches design as a balance between aesthetics and everyday living. His style leans towards clean, thoughtful compositions enhanced by natural materials and subtle textures. Aman believes that good design should not only look beautiful but also feel intuitive, comfortable, and timeless.</p>
-      </div>
-    </div>
-  </section>
+        <!-- Radhika -->
+        <div class="abt-founder-card">
+          <div class="abt-founder-card__photo">
+            <img src="/assets/images/team/founder-radhika.webp" alt="Radhika Maheshwari - Co-Founder & Principal Designer at studio raama" loading="lazy">
+          </div>
+          <p class="abt-founder-card__role">Co-Founder & Principal Designer</p>
+          <h3 class="abt-founder-card__name">Radhika Maheshwari</h3>
+          <div class="abt-founder-card__divider"></div>
+          <p class="abt-founder-card__bio">Radhika brings a sensitive and intuitive approach to design, focusing on how spaces feel as much as how they look. She enjoys crafting environments that are warm, inviting, and layered with meaningful details. With a love for soft palettes, textures, and storytelling through design, her work reflects a sense of calm and harmony. Radhika believes that every space should tell a story — one that resonates with the people who live in it.</p>
+        </div>
 
-  <!-- VALUES -->
-  <section class="abt-values">
-    <div class="abt-values__inner">
-      <div class="abt-value">
-        <p class="abt-value__num">01</p>
-        <p class="abt-value__label">Personalized Approach</p>
-        <p class="abt-value__text">Every project starts with understanding you - your tastes, habits, and aspirations.</p>
-      </div>
-      <div class="abt-value">
-        <p class="abt-value__num">02</p>
-        <p class="abt-value__label">End-to-End Management</p>
-        <p class="abt-value__text">From concept to handover, we manage every detail so your dream space comes alive.</p>
-      </div>
-      <div class="abt-value">
-        <p class="abt-value__num">03</p>
-        <p class="abt-value__label">Curated Materials</p>
-        <p class="abt-value__text">Materials, textures, and finishes carefully chosen for a cohesive design language.</p>
-      </div>
-      <div class="abt-value">
-        <p class="abt-value__num">04</p>
-        <p class="abt-value__label">Holistic Styling</p>
-        <p class="abt-value__text">Beyond design, we bring spaces together through thoughtful staging and styling.</p>
-      </div>
-    </div>
-  </section>
+        <!-- Aman -->
+        <div class="abt-founder-card">
+          <div class="abt-founder-card__photo">
+            <img src="/assets/images/team/founder-aman.webp" alt="Aman Tank - Co-Founder & Principal Designer at studio raama" loading="lazy">
+          </div>
+          <p class="abt-founder-card__role">Co-Founder & Principal Designer</p>
+          <h3 class="abt-founder-card__name">Aman Tank</h3>
+          <div class="abt-founder-card__divider"></div>
+          <p class="abt-founder-card__bio">Aman is driven by a passion for creating spaces that feel both refined and deeply personal. With a strong eye for detail and a focus on functionality, he approaches design as a balance between aesthetics and everyday living. His style leans towards clean, thoughtful compositions enhanced by natural materials and subtle textures. Aman believes that good design should not only look beautiful but also feel intuitive, comfortable, and timeless.</p>
+        </div>
 
-  <!-- CTA -->
-  <section class="abt-cta">
-    <div class="container">
-      <h2>let's create something <em>beautiful together.</em></h2>
-      <p>Ready to transform your space? We'd love to hear about your project.</p>
-      <a href="/contact/" class="btn btn--primary" aria-label="Get in touch with studio raama">Get in Touch</a>
-    </div>
-  </section>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="abt-values">
+      <div class="abt-values__inner">
+        <div class="abt-value">
+          <p class="abt-value__num">01</p>
+          <p class="abt-value__label">Personalized Approach</p>
+          <p class="abt-value__text">Every project starts with understanding you — your tastes, habits, and aspirations.</p>
+        </div>
+        <div class="abt-value">
+          <p class="abt-value__num">02</p>
+          <p class="abt-value__label">End-to-End Management</p>
+          <p class="abt-value__text">From concept to handover, we manage every detail so your dream space comes alive.</p>
+        </div>
+        <div class="abt-value">
+          <p class="abt-value__num">03</p>
+          <p class="abt-value__label">Curated Materials</p>
+          <p class="abt-value__text">Materials, textures, and finishes carefully chosen for a cohesive design language.</p>
+        </div>
+        <div class="abt-value">
+          <p class="abt-value__num">04</p>
+          <p class="abt-value__label">Holistic Styling</p>
+          <p class="abt-value__text">Beyond design, we bring spaces together through thoughtful staging and styling.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="abt-cta">
+      <div class="container">
+        <span class="abt-cta__eyebrow">Let's Connect</span>
+        <h2 class="abt-cta__heading">
+          <span class="abt-cta__heading-light">let's create something</span>
+          <span class="abt-cta__heading-bold">beautiful together.</span>
+        </h2>
+        <p>Ready to transform your space? We'd love to hear about your project.</p>
+        <a href="/contact/" class="btn btn--primary" aria-label="Get in touch with studio raama">Get in Touch</a>
+      </div>
+    </section>
 
   </main>
 
