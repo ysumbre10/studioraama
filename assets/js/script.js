@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ========== SWIPER HERO (homepage only) ========== */
   function initHeroSwiper() {
-    const counterCurrent = document.querySelector('.hp-counter__current');
     const heroEl = document.querySelector('.hp-hero');
 
     // Detect touch before Swiper init so we can set touchReleaseOnEdges in constructor
@@ -63,11 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keyboard: true,
       allowTouchMove: true,
       touchReleaseOnEdges: isTouchDev, // release page scroll at first/last slide on touch devices
-      on: {
-        slideChange: function () {
-          if (counterCurrent) counterCurrent.textContent = this.activeIndex + 1;
-        }
-      }
+      on: {}
     });
 
     let isAnimating = false;
@@ -103,11 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
         heroSwiper.slideNext();
         setTimeout(() => { isAnimating = false; }, 900);
 
-        // Hide scroll hint on last slide
-        if (heroSwiper.activeIndex === heroSwiper.slides.length - 1) {
-          const hint = document.querySelector('.hp-scroll-hint');
-          if (hint) gsap.to(hint, { opacity: 0, duration: 0.4 });
-        }
       } else if (isUp && !isFirst) {
         // Go back to previous slide
         e.preventDefault();

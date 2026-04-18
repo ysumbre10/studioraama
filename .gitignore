@@ -1,2 +1,37 @@
+# macOS system files
 .DS_Store
+**/.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Claude Code internals
 .claude/
+
+# Editor & IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Node (if ever added)
+node_modules/
+package-lock.json
+
+# OS / misc
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.tmp
+*.bak
+*.swp
+*~

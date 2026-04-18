@@ -369,8 +369,7 @@ ul { list-style: none; }
 .nav__link {
   font-size: 0.85rem;
   font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   color: var(--white);
   position: relative;
   transition: var(--transition);
@@ -390,21 +389,20 @@ ul { list-style: none; }
 .nav__link:hover::after { width: 100%; }
 
 .nav__link--cta {
-  padding: 0.6rem 1.5rem;
-  border: 1.5px solid var(--white);
+  padding: 0;
+  border: none;
 }
 
 .header.scrolled .nav__link--cta {
-  border-color: var(--text-primary);
+  border-color: transparent;
 }
 
 .nav__link--cta:hover {
-  background: var(--terracotta);
-  border-color: var(--terracotta);
-  color: var(--white);
+  background: none;
+  border-color: transparent;
 }
 
-.nav__link--cta::after { display: none; }
+.nav__link--cta::after { display: block; }
 
 .nav__close { display: none; }
 
@@ -442,6 +440,7 @@ ul { list-style: none; }
   background-position: center;
   opacity: 0;
   transition: opacity 1s ease;
+  will-change: transform;
 }
 
 .hero__slide.active { opacity: 1; }
@@ -569,6 +568,7 @@ ul { list-style: none; }
   gap: 0;
   white-space: nowrap;
   animation: marqueeScroll 22s linear infinite;
+  will-change: transform;
 }
 
 .marquee-section:hover .marquee__track {
@@ -1548,13 +1548,6 @@ div.service-card {
   contain-intrinsic-size: auto 600px;
 }
 
-.hero__slide {
-  will-change: transform;
-}
-
-.marquee__track {
-  will-change: transform;
-}
 
 /* ---------- REVEAL (GSAP) ---------- */
 .reveal {
